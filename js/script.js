@@ -13,35 +13,45 @@ Il recap dei dati e l'output del prezzo finale va stampato in pagina formattato 
 2. Registrare al click gli input nome e cognome, km da percorrere e fascia d'età
 3. Settare il pulsante "reset"
 4. Stampare su schermo il riepilogo dati
+5. Aggiungere la validazione
 
 */
 
 // 1. Dichiarare le variabili da "conoscere" sin dall'inizio
 let pricePerKm = 0.21;
+const offerMinor = 0.8;
+const offerOver65= 0.6;
 let calculateButton = document.getElementById('calculate');
 let resetButton = document.getElementById('reset');
-let nameInput;
-let kmsInput;
-let ageInput;
 
 // 2. Registrare al click gli input nome e cognome, km da percorrere e fascia d'età
+// 4. Stampare su schermo il riepilogo dati
 calculateButton.addEventListener('click', function(){
-    nameInput = document.getElementById('name');
-    name = nameInput.value;
-    console.log("L'utente si chiama " + name);
-    
-    kmsInput = document.getElementById('kms');
-    kms = parseInt(kmsInput.value);
-    console.log("L'utente deve percorrere " + kms + " chilometri");
+    let nameInput = document.getElementById('name');
+    let passenger = document.getElementById('passenger');
+    let name = nameInput.value;
+    console.log("nome: " + name);
+    passenger.innerText = name;
 
-    ageInput = document.getElementById('age');
-    age = ageInput.value;
-    console.log("L'utente è " + age);
+    
+    let kmsInput = document.getElementById('kms');
+    kms = parseInt(kmsInput.value);
+    console.log("chilometri: " + kms);
+
+
+    let ageInput = document.getElementById('age');
+    let offer = document.getElementById('offer');
+    let age = ageInput.options[ageInput.selectedIndex].value;
+    console.log("età: " + age);
+
+    
+    let price = pricePerKm * kms;
+    console.log("Prezzo pieno: " + price);
+
+
+
+    let finalPrice = document.getElementById('final-price');
+    finalPrice.innerText = price.toFixed(2) + "€";
 })
 
 // 3. Settare il pulsante "reset"
-resetButton.addEventListener('click', function(){
-    nameInput.value = "";
-    kmsInput.value = "";
-    ageInput.value = "";
-})
