@@ -61,6 +61,18 @@ calculateButton.addEventListener('click', function(){
 
     let finalPrice = document.getElementById('final-price');
     finalPrice.innerText = price.toFixed(2) + "€";
+
+    // Selezione più stampa numero cabina
+    const cabMin = 1;
+    const cabMax = 9;
+    const cab = document.getElementById('cab');
+    cab.innerText = Math.floor(Math.random() * (cabMax + 1 - cabMin)) + cabMin;
+
+    // Selezione più stampa codice CP
+    const cpMin = 10000;
+    const cpMax = 20000;
+    const cpCode = document.getElementById('cp-code');
+    cpCode.innerText = Math.floor(Math.random() * (cpMax + 1 - cpMin)) + cpMin;
 })
 
 // 3. Settare il pulsante "reset"
