@@ -27,36 +27,37 @@ let resetButton = document.getElementById('reset');
 // 2. Registrare al click gli input nome e cognome, km da percorrere e fascia d'età
 // 4. Stampare su schermo il riepilogo dati
 calculateButton.addEventListener('click', function(){
+    // Selezione più stampa nome passeggero
     let nameInput = document.getElementById('name');
     let passenger = document.getElementById('passenger');
     let name = nameInput.value;
     console.log("nome: " + name);
     passenger.innerText = name;
 
-    
+    // Selezione più stampa chilometri
     let kmsInput = document.getElementById('kms');
     kms = parseInt(kmsInput.value);
     console.log("chilometri: " + kms);
 
-
+    // Selezione più stampa tariffa in base all'età
     let ageInput = document.getElementById('age');
     let offer = document.getElementById('offer');
     let age = ageInput.options[ageInput.selectedIndex].value;
     console.log("età: " + age);
 
-    if (age === "minorenne"){
-        offer.innerText = "Tariffa Minorenni";
-    } else if (age === "over-65"){
-        offer.innerText = "Tariffa Over 65";
-    } else {
-        offer.innerText = "Tariffa Standard";
-    }
+    let offerMessage = "Tariffa Standard";
 
+    if (age === "minorenne") offerMessage = "Tariffa Minorenni";
+    if (age === "over-65") offerMessage = "Tariffa Over 65";
+    
+    offer.innerText = offerMessage;
 
+    // Selezione più stampa costo biglietto in base alla tariffa
     let price = pricePerKm * kms;
     console.log("Prezzo pieno: " + price);
 
-
+    if (age === "minorenne") price *= offerMinor;
+    if (age === "over-65") price *= offerOver65;
 
     let finalPrice = document.getElementById('final-price');
     finalPrice.innerText = price.toFixed(2) + "€";
