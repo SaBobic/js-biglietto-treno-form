@@ -1,5 +1,4 @@
 /*
-
 Il programma dovrà mostrare un form da compilare con cui chiedere:
 - il numero di chilometri che vuole percorrere
 - l'età del passeggero
@@ -9,42 +8,43 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 - sconto del 40% per gli over 65
 Il recap dei dati e l'output del prezzo finale va stampato in pagina formattato con massimo due decimali.
 
-1. Dichiarare le variabili da "conoscere" sin dall'inizio
+1. Dichiarare le variabili globali
 2. Registrare al click gli input nome e cognome, km da percorrere e fascia d'età
-3. Settare il pulsante "reset"
-4. Stampare su schermo il riepilogo dati
+3. Stampare su schermo il riepilogo dati
+4. Settare il pulsante "reset"
 5. Aggiungere la validazione
-
 */
 
-// 1. Dichiarare le variabili da "conoscere" sin dall'inizio
-let pricePerKm = 0.21;
+// 1. Dichiarare le variabili globali
+const pricePerKm = 0.21;
 const offerMinor = 0.8;
 const offerOver65= 0.6;
-let calculateButton = document.getElementById('calculate');
-let resetButton = document.getElementById('reset');
+const calculateButton = document.getElementById('calculate');
+const resetButton = document.getElementById('reset');
+const nameInput = document.getElementById('name');
+const kmsInput = document.getElementById('kms');
+const ageInput = document.getElementById('age');
+const finalPrice = document.getElementById('final-price');
+const cab = document.getElementById('cab');
+const cpCode = document.getElementById('cp-code');
 
 // 2. Registrare al click gli input nome e cognome, km da percorrere e fascia d'età
-// 4. Stampare su schermo il riepilogo dati
+// 3. Stampare su schermo il riepilogo dati
 calculateButton.addEventListener('click', function(){
     // Selezione più stampa nome passeggero
-    let nameInput = document.getElementById('name');
     let passenger = document.getElementById('passenger');
     let name = nameInput.value;
     console.log("nome: " + name);
     passenger.innerText = name;
 
     // Selezione più stampa chilometri
-    let kmsInput = document.getElementById('kms');
     kms = parseInt(kmsInput.value);
     console.log("chilometri: " + kms);
 
     // Selezione più stampa tariffa in base all'età
-    let ageInput = document.getElementById('age');
     let offer = document.getElementById('offer');
     let age = ageInput.options[ageInput.selectedIndex].value;
     console.log("età: " + age);
-
     let offerMessage = "Tariffa Standard";
 
     if (age === "minorenne") offerMessage = "Tariffa Minorenni";
@@ -58,21 +58,29 @@ calculateButton.addEventListener('click', function(){
 
     if (age === "minorenne") price *= offerMinor;
     if (age === "over-65") price *= offerOver65;
-
-    let finalPrice = document.getElementById('final-price');
+    
     finalPrice.innerText = price.toFixed(2) + "€";
 
     // Selezione più stampa numero cabina
     const cabMin = 1;
     const cabMax = 9;
-    const cab = document.getElementById('cab');
     cab.innerText = Math.floor(Math.random() * (cabMax + 1 - cabMin)) + cabMin;
 
     // Selezione più stampa codice CP
     const cpMin = 10000;
     const cpMax = 20000;
-    const cpCode = document.getElementById('cp-code');
     cpCode.innerText = Math.floor(Math.random() * (cpMax + 1 - cpMin)) + cpMin;
 })
 
 // 3. Settare il pulsante "reset"
+
+resetButton.addEventListener('click', function(){
+    nameInput.value = "";
+    passenger.innerText = "";
+    kmsInput.value = "";
+    ageInput.value = "";
+    offer.innerText = "";
+    finalPrice.innerText = "";
+    cab.innerText = "";
+    cpCode.innerText = "";
+})
