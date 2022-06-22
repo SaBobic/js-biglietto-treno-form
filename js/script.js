@@ -9,5 +9,29 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 - sconto del 40% per gli over 65
 Il recap dei dati e l'output del prezzo finale va stampato in pagina formattato con massimo due decimali.
 
-1. 
+1. Dichiarare le variabili da "conoscere" sin dall'inizio
+2. Registrare al click gli input nome e cognome, km da percorrere e fascia d'età
+3. Settare il pulsante "reset"
+4. Stampare su schermo il riepilogo dati
+
 */
+
+// 1. Dichiarare le variabili da "conoscere" sin dall'inizio
+let pricePerKm = 0.21;
+let calculateButton = document.getElementById('calculate');
+let resetButton = document.getElementById('reset');
+
+// 2.
+calculateButton.addEventListener('click', function(){
+    let nameInput = document.getElementById('name');
+    name = nameInput.value;
+    console.log("L'utente si chiama " + name);
+    
+    let kmsInput = document.getElementById('kms');
+    kms = parseInt(kmsInput.value);
+    console.log("L'utente deve percorrere" + kms + " chilometri");
+
+    let ageInput = document.getElementById('age');
+    age = ageInput.value;
+    console.log("L'utente è " + age);
+})

@@ -13,7 +13,30 @@
     <title>Boolean Italia</title>
 </head>
 <body>
-    
+    <div>
+        <label for="name">Nome e Cognome</label>
+        <input type="text" id="name" placeholder="Mario Rossi">
+        <label for="kms">Km da percorrere</label>
+        <input type="text" id="kms" placeholder="10">
+        <label for="age">Fascia d'età</label>
+        <select name="" id="age">
+            <option value="" disabled selected>Selezionare</option>
+            <option value="minorenne">Minorenne</option>
+            <option value="maggiorenne">Maggiorenne</option>
+            <option value="over-65">Over 65</option>
+        </select>
+        <button id="calculate">Calcola</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div>
+        <p>Nome passeggero: <span id="passenger"></span></p>
+        <p>Offerta: <span id="offer"></span></p>
+        <p>Carrozza: <span id="cab"></span></p>
+        <p>Codice CP: <span id="cp-code"></span></p>
+        <p>Costo biglietto: <span id="final-price"></span></p>
+    <div>
+
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
