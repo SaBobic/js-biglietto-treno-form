@@ -34,16 +34,13 @@ calculateButton.addEventListener('click', function(){
     // Registrazione value nome passeggero
     let passenger = document.getElementById('passenger');
     let name = nameInput.value;
-    console.log("nome: " + name);
     
     // Registrazione value chilometri
     kms = parseInt(kmsInput.value);
-    console.log("chilometri: " + kms);
     
     // Registrazione value tariffa in base all'età
     let offer = document.getElementById('offer');
     let age = ageInput.options[ageInput.selectedIndex].value;
-    console.log("età: " + age);
 
     
     // 5. Validazione
@@ -74,7 +71,6 @@ calculateButton.addEventListener('click', function(){
         
         // Registrazione costo biglietto in base alla tariffa
         let price = pricePerKm * kms;
-        console.log("Prezzo pieno: " + price);
         if (age === "minorenne") price *= offerMinor;
         if (age === "over-65") price *= offerOver65;
         

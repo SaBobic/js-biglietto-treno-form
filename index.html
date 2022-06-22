@@ -13,30 +13,55 @@
     <title>Boolean Italia</title>
 </head>
 <body>
-    <div>
-        <label for="name">Nome e Cognome</label>
-        <input type="text" id="name" placeholder="Mario Rossi">
-        <label for="kms">Km da percorrere</label>
-        <input type="text" id="kms" placeholder="10">
-        <label for="age">Fascia d'età</label>
-        <select name="" id="age">
-            <option value="" disabled selected>Selezionare</option>
-            <option value="minorenne">Minorenne</option>
-            <option value="maggiorenne">Maggiorenne</option>
-            <option value="over-65">Over 65</option>
-        </select>
-        <button id="calculate">Calcola</button>
-        <button id="reset">Reset</button>
-    </div>
-    <div>
-        <p>Nome passeggero: <span id="passenger"></span></p>
-        <p>Offerta: <span id="offer"></span></p>
-        <p>Carrozza: <span id="cab"></span></p>
-        <p>Codice CP: <span id="cp-code"></span></p>
-        <p>Costo biglietto: <span id="final-price"></span></p>
-    <div>
 
-    </div>
+    <!-- Sezione dati -->
+    <section>
+        <header id="dati">Dati passeggero</header>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="h5">Inserisci nome e cognome</div>
+                <input type="text" id="name" placeholder="Mario Rossi">
+
+                <div class="h5">Inserisci la fascia d'età</div>
+                <select name="" id="age">
+                <option value="" disabled selected>Selezionare</option>
+                <option value="minorenne">Minorenne</option>
+                <option value="maggiorenne">Maggiorenne</option>
+                <option value="over-65">Over 65</option>
+        </select>
+            </div>
+            <div class="col-6">
+                <div class="h5">Inserisci i chilometri da percorrere</div>
+                <input type="text" id="kms" placeholder="10">
+                
+                <button class="d-block btn btn-primary" id="calculate">Calcola</button>
+            </div>
+        </div>
+        
+
+
+        
+    </section>
+    
+    <!-- Sezione riepilogo -->
+    <section>
+        <header id="riepilogo">Riepilogo</header>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="h5">Nome passeggero: <strong><span id="passenger"></span></strong></div>
+                <div class="h5">Carrozza: <strong><span id="cab"></span></strong></div>
+                <div class="h5">Costo biglietto: <strong><span id="final-price"></span></strong></div>
+            </div>
+            <div class="col-6">
+                <div class="h5">Offerta: <strong><span id="offer"></span></strong></div>
+                <div class="h5">Codice CP: <strong><span id="cp-code"></span></strong></div>
+                <button class="btn btn-danger" id="reset">Reset</button>
+            </div>
+        </div>
+    </section>
+
     <script src="js/script.js"></script>
 </body>
 </html>

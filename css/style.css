@@ -11,3 +11,37 @@
 body{
     font-family: sans-serif;
 }
+
+section{
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+/* Header */
+
+header{
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 10px 10px;
+    clip-path: polygon(0 0,100% 0,98% 80%,0% 100%);
+}
+
+#dati{
+    background-color: #0C7BB3;
+}
+
+#riepilogo{
+    background-color: #064D70;
+}
+
+/* Section */
+
+input{
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 10px;
+}
