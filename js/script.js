@@ -44,7 +44,15 @@ calculateButton.addEventListener('click', function(){
     let age = ageInput.options[ageInput.selectedIndex].value;
     console.log("età: " + age);
 
-    
+    if (age === "minorenne"){
+        offer.innerText = "Tariffa Minorenni";
+    } else if (age === "over-65"){
+        offer.innerText = "Tariffa Over 65";
+    } else {
+        offer.innerText = "Tariffa Standard";
+    }
+
+
     let price = pricePerKm * kms;
     console.log("Prezzo pieno: " + price);
 
